@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate theta values
+theta_values = np.linspace(0, 2 * np.pi, 100)
+
+# Energy for H = Z
+energy_values = np.cos(theta_values)
+
+# Optimal result
+optimal_theta = np.pi
+minimum_energy = -1
+
+# Plot
+plt.figure(figsize=(7, 5))
+
+plt.plot(theta_values, energy_values)
+
+plt.scatter(
+    optimal_theta,
+    minimum_energy,
+    s=100,
+    label="Minimum Energy = -1"
+)
+
+plt.xlabel("Theta (θ)")
+plt.ylabel("Energy")
+plt.title("VQE Energy Landscape")
+plt.legend()
+plt.grid()
+
+# Save graph
+plt.savefig(
+    "vqe_energy_landscape.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.show()
